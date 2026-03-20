@@ -69,6 +69,54 @@ cp mysite.com user@server:/var/www/</code></pre>
         </div>
 
         <section style="margin-top: 80px;">
+            <h2>The Redcap Advantage</h2>
+            <table style="width: 100%; border-collapse: collapse; margin-top: 20px; text-align: left;">
+                <thead>
+                    <tr style="border-bottom: 2px solid var(--primary);">
+                        <th style="padding: 10px;">Feature</th>
+                        <th style="padding: 10px;">GitHub Pages</th>
+                        <th style="padding: 10px;">Redcap CMS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;"><strong>Setup</strong></td>
+                        <td style="padding: 10px;">~5 Minutes</td>
+                        <td style="padding: 10px;">~30 Seconds</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;"><strong>Architecture</strong></td>
+                        <td style="padding: 10px;">Centralized (SaaS)</td>
+                        <td style="padding: 10px;">Decentralized (Appliance)</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;"><strong>Authoring</strong></td>
+                        <td style="padding: 10px;">Dev-Only (Git)</td>
+                        <td style="padding: 10px;">Visual GUI</td>
+                    </tr>
+                    <tr style="border-bottom: 1px solid #eee;">
+                        <td style="padding: 10px;"><strong>Editing</strong></td>
+                        <td style="padding: 10px;">~2 Min Deploy</td>
+                        <td style="padding: 10px;">Instant Save</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 10px;"><strong>Portability</strong></td>
+                        <td style="padding: 10px;">Locked to GitHub</td>
+                        <td style="padding: 10px;">Move the file</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section style="margin-top: 80px;">
+            <h2>Cloud Deployment (Fly.io)</h2>
+            <p>Redcap is container-ready. Deploy to Fly.io in seconds with this minimal Dockerfile:</p>
+            <pre><code>FROM alpine
+COPY redcap.com /redcap.com
+CMD ["/redcap.com", "-p", "8080", "-*"]</code></pre>
+        </section>
+
+        <section style="margin-top: 80px;">
             <h2>Quick Start</h2>
             <p>1. Initialize your admin account:</p>
             <pre><code>./redcap.com -- --init-admin="mypassword"</code></pre>

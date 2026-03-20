@@ -24,6 +24,19 @@ Redcap is designed to be a "site-in-a-can."
 *   **Fleet Provisioner:** Easily deploy and manage a fleet of autonomous Redcap instances with automated Nginx/Caddy configuration generation.
 *   **Static Site Export:** One-click export of your dynamic site into a flat HTML ZIP for high-performance static hosting.
 
+## ⚖️ Comparison: GitHub Pages vs. Redcap CMS
+
+| Feature | GitHub Pages | Redcap CMS |
+| :--- | :--- | :--- |
+| **Setup Time** | ~5 Minutes | ~30 Seconds |
+| **Architecture** | Centralized (SaaS) | Decentralized (Appliance) |
+| **Authoring** | **Dev-Only:** Git, Markdown, Editor. | **Everyone:** Visual Builders in browser. |
+| **Data** | Flat Files only. | **Live SQLite Database.** |
+| **Editing** | Push -> Build -> Deploy (~2 min). | **Instant Save** (0 seconds). |
+| **Portability** | Locked to GitHub's infrastructure. | **Move the file, move the site.** |
+| **Headless API** | None (unless you build one). | **Native JSON API** generated automatically. |
+| **Mobile Edit** | Hard (requires specialized apps). | **Native** (works perfectly in Safari/Chrome). |
+
 ## 🛠️ Getting Started
 
 1.  **Download:** Grab the latest `redcap.com` binary.
