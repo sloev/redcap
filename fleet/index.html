@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redcap Fleet Commander</title>
+    <script src="https://unpkg.com/alpinejs" defer></script>
+    <style>
+        :root { --primary: #6200ee; --bg: #f5f5f5; --card: #ffffff; }
+        body { font-family: system-ui, -apple-system, sans-serif; background: var(--bg); margin: 0; padding: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { font-weight: 300; color: var(--primary); }
+        .card { background: var(--card); border-radius: 12px; padding: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.05); margin-bottom: 20px; }
+        .site-item { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #eee; padding: 15px 0; }
+        .site-item:last-child { border-bottom: none; }
+        input { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        button { background: var(--primary); color: white; border: none; padding: 12px 24px; border-radius: 8px; font-weight: bold; cursor: pointer; }
+        .badge { font-size: 0.75rem; background: #e8f5e9; color: #2e7d32; padding: 4px 8px; border-radius: 12px; }
+    </style>
+</head>
+<body x-data="{ 
+    sites: [], 
+    newName: '', 
+    newDomain: '',
+    async fetchSites() { this.sites = await (await fetch('/fleet/api/sites')).json(); }
+}" x-init="fetchSites()">
+    <div class="container">
+        <h1>Fleet Commander</h1>
+        <p>Managing your atomic Redcap instances.</p>
+
+        <div class="card">
+            <h2>Active Sites</h2>
+            <template x-for="site in sites">
+                <div class="site-item">
+                    <div>
+                        <strong x-text="site.name"></strong>
+                        <div style="font-size: 0.85rem; color: #666;" x-text="site.domain"></div>
+                    </div>
+                    <div style="text-align: right;">
+                        <span class="badge" x-text="'Port: ' + site.port"></span>
+                        <div style="font-size: 0.75rem; color: #999; margin-top: 4px;" x-text="'PID: ' + site.pid"></div>
+                    </div>
+                </div>
+            </template>
+            <template x-if="sites.length === 0">
+                <p style="color: #999; text-align: center;">No sites provisioned yet.</p>
+            </template>
+        </div>
+
+        <div class="card">
+            <h2>Nginx Proxy Config</h2>
+            <p style="font-size: 0.85rem; color: #666;">Use this to route traffic from the internet through your edge server.</p>
+            <button @click="const res = await fetch('/fleet/api/nginx'); alert(await res.text())">View Config</button>
+        </div>
+
+        <div class="card">
+            <h2>Provision New Site</h2>
+            <form @submit.prevent="
+                const res = await fetch('/fleet/api/sites', {
+                    method: 'POST',
+                    body: new URLSearchParams({ name: newName, domain: newDomain })
+                });
+                if (res.ok) { fetchSites(); newName = ''; newDomain = ''; }
+            ">
+                <input x-model="newName" placeholder="Unique Site Name (e.g. my-blog)" required>
+                <input x-model="newDomain" placeholder="Domain Name (e.g. blog.example.com)" required>
+                <button type="submit">Deploy Instance</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

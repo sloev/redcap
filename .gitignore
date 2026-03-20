@@ -1,0 +1,21 @@
+# Redcap Artifacts
+*.com
+*.db
+*.db.bak
+*.log
+.init.lua.tmp
+.tmp_fleet/
+
+# Logs
+redbean_log.txt
+redbean_test.log
+
+# Temporary test scripts
+test_*.lua
+verify_db.lua
+test_g.lua
+test_sql.lua
+test_arg.lua
+test_args.lua
+test_md.lua
+globals.txt

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redcap CMS | Radically Portable Atomic Content Management</title>
+    <style>
+        :root { --primary: #e74c3c; --dark: #2c3e50; --light: #ecf0f1; --accent: #3498db; }
+        body { font-family: 'Inter', -apple-system, sans-serif; margin: 0; color: #333; line-height: 1.6; background: #fff; }
+        header { background: var(--dark); color: white; padding: 100px 20px; text-align: center; border-bottom: 8px solid var(--primary); }
+        header h1 { font-size: 4rem; margin: 0; font-weight: 900; letter-spacing: -2px; }
+        header p { font-size: 1.5rem; opacity: 0.8; font-weight: 300; }
+        .container { max-width: 900px; margin: 0 auto; padding: 60px 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-top: 40px; }
+        .feature-card { border-left: 4px solid var(--primary); padding-left: 20px; }
+        .feature-card h3 { margin-top: 0; color: var(--dark); }
+        .cta { text-align: center; margin-top: 60px; }
+        .button { background: var(--primary); color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; transition: 0.2s; display: inline-block; }
+        .button:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(231, 76, 60, 0.3); }
+        code { background: #f4f4f4; padding: 2px 6px; border-radius: 4px; font-family: monospace; }
+        pre { background: #2c3e50; color: #fff; padding: 20px; border-radius: 8px; overflow-x: auto; }
+        footer { text-align: center; padding: 40px; background: #f9f9f9; color: #888; font-size: 0.9rem; }
+        .flag { color: var(--primary); font-size: 5rem; display: block; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="flag">🚩</span>
+        <h1>Redcap CMS</h1>
+        <p>The site-in-a-can. Zero dependencies. Atomic singularity.</p>
+        <div class="cta">
+            <a href="https://github.com/nihil/decapredbean" class="button">View on GitHub</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2>Radical Portability</h2>
+            <p>Redcap is built on top of <strong>Redbean</strong>, an Actually Portable Executable (APE). This means your entire website—server, database, admin panel, and content—is contained within a <strong>single file</strong> that runs natively on almost any operating system.</p>
+            <pre><code># Move your entire site with one command
+cp mysite.com user@server:/var/www/</code></pre>
+        </section>
+
+        <div class="grid">
+            <div class="feature-card">
+                <h3>Bake to ZIP</h3>
+                <p>Live changes to your SQLite database can be "baked" directly back into the executable's internal ZIP store.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Visual Builders</h3>
+                <p>Define schemas and author content using a modern, reactive interface. No coding required.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Monaco IDE</h3>
+                <p>A pro-grade layout editor with syntax highlighting and live side-by-side previewing.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Headless API</h3>
+                <p>Automatically generated REST/JSON endpoints for all your content collections.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Multi-Language</h3>
+                <p>Native i18n support for global reach with localized routing built-in.</p>
+            </div>
+            <div class="feature-card">
+                <h3>Self-Healing</h3>
+                <p>Automatic integrity checks and daily backups ensure your data remains robust and recoverable.</p>
+            </div>
+        </div>
+
+        <section style="margin-top: 80px;">
+            <h2>Quick Start</h2>
+            <p>1. Initialize your admin account:</p>
+            <pre><code>./redcap.com -- --init-admin="mypassword"</code></pre>
+            <p>2. Run the atomic server:</p>
+            <pre><code>./redcap.com -p 8080 -*</code></pre>
+            <p>3. Build your world at <code>/admin</code>.</p>
+        </section>
+    </div>
+
+    <footer>
+        &copy; 2026 Redcap CMS Project. Built with Redbean & Fullmoon.
+    </footer>
+</body>
+</html>
