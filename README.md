@@ -54,6 +54,11 @@ Redcap is designed to be a "site-in-a-can."
 
 To move your site to a new server, simply copy the single `mysite.com` file. No database migrations, no environment variables, no `npm install`.
 
+## ☕ Support the Project
+
+If you find Redcap CMS useful, consider supporting its development:
+[**Buy Me A Coffee**](https://buymeacoffee.com/sloev)
+
 ## 📜 License
 
 Public Domain / ISC (Inherited from Redbean). Build freely.
